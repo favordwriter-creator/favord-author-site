@@ -3,28 +3,43 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Favord | Author & Poet</title>
-.book-cover {
-  width: 100%;
-  max-width: 220px;
-  height: auto;
-  display: block;
-  margin: 15px auto;
-  border-radius: 12px;
-  border: 1px solid #6e1f1f;
-  box-shadow: 0 0 20px rgba(120,0,0,0.4);
-}
+<title>Favord | Official Author Website</title>
+
 <style>
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   background: #050303;
   color: #f5eee6;
   line-height: 1.7;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(139, 0, 0, 0.28), transparent 32%),
+    radial-gradient(circle at 80% 35%, rgba(80, 0, 0, 0.22), transparent 35%),
+    linear-gradient(to bottom, #030101, #110505, #050303);
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.35;
+  z-index: -1;
 }
 
 .hero {
@@ -33,40 +48,46 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px 20px;
-  background:
-    radial-gradient(circle at center, rgba(120,0,0,0.35), transparent 45%),
-    linear-gradient(to bottom, #050303, #120606, #050303);
+  padding: 70px 20px;
 }
 
-.hero-content {
-  max-width: 850px;
+.hero-box {
+  max-width: 920px;
+  padding: 50px 35px;
+  border: 1px solid rgba(215,181,109,0.35);
+  box-shadow: 0 0 60px rgba(120,0,0,0.5);
+  background: rgba(5,3,3,0.72);
+  border-radius: 24px;
 }
 
 h1 {
   font-size: 5rem;
-  letter-spacing: 8px;
+  letter-spacing: 10px;
   color: #d7b56d;
-  margin-bottom: 10px;
-  text-shadow: 0 0 20px rgba(180,0,0,0.8);
+  margin: 0;
+  text-shadow: 0 0 25px rgba(180,0,0,0.9);
 }
 
 .tagline {
-  font-size: 1.3rem;
   color: #c9a96e;
-  margin-bottom: 30px;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
 }
 
 .quote {
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-style: italic;
-  color: #f5eee6;
+  margin-top: 25px;
+  color: #f7e8d5;
 }
 
 nav {
-  background: #0b0505;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(11,5,5,0.96);
   text-align: center;
-  padding: 18px;
+  padding: 16px;
   border-top: 1px solid #5a1b1b;
   border-bottom: 1px solid #5a1b1b;
 }
@@ -74,57 +95,80 @@ nav {
 nav a {
   color: #d7b56d;
   text-decoration: none;
-  margin: 0 18px;
-  font-size: 1rem;
+  margin: 0 14px;
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  color: #ffffff;
 }
 
 section {
-  max-width: 1100px;
+  max-width: 1150px;
   margin: auto;
   padding: 80px 25px;
 }
 
 h2 {
   color: #d7b56d;
-  font-size: 2.3rem;
-  margin-bottom: 25px;
+  font-size: 2.45rem;
+  margin-bottom: 10px;
 }
 
-.books {
+.section-subtitle {
+  color: #c7b8a2;
+  margin-bottom: 35px;
+}
+
+.books,
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+  gap: 28px;
 }
 
-.book-card {
-  background: linear-gradient(145deg, #120606, #050303);
+.book-card,
+.segment-card {
+  background: linear-gradient(145deg, #140707, #050303);
   border: 1px solid #6e1f1f;
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 28px;
+  text-align: center;
   box-shadow: 0 0 25px rgba(90,0,0,0.35);
-  transition: 0.3s ease;
 }
 
-.book-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 35px rgba(160,0,0,0.55);
-}
-
-.book-card h3 {
-  color: #f0c875;
-  font-size: 1.6rem;
+.book-card:hover,
+.segment-card:hover {
+  box-shadow: 0 0 35px rgba(140,0,0,0.5);
 }
 
 .status {
   color: #b83a3a;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
+  font-size: 0.82rem;
+  letter-spacing: 2px;
   text-transform: uppercase;
+}
+
+.book-card h3,
+.segment-card h3 {
+  color: #f0c875;
+  font-size: 1.55rem;
+}
+
+.book-cover {
+  width: 100%;
+  max-width: 210px;
+  height: auto;
+  display: block;
+  margin: 18px auto;
+  border-radius: 12px;
+  border: 1px solid #6e1f1f;
+  box-shadow: 0 0 24px rgba(120,0,0,0.5);
 }
 
 .button {
   display: inline-block;
-  margin-top: 15px;
+  margin: 12px 6px 0;
   padding: 10px 18px;
   border: 1px solid #d7b56d;
   color: #d7b56d;
@@ -139,9 +183,38 @@ h2 {
 
 .poetry-box {
   border-left: 3px solid #8b1f1f;
-  padding-left: 25px;
-  font-style: italic;
   color: #ead9c2;
+  background: rgba(20,7,7,0.55);
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(90,0,0,0.25);
+}
+
+.about-wrap {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.author-photo {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid #d7b56d;
+  box-shadow: 0 0 30px rgba(120,0,0,0.5);
+}
+
+.contact-box {
+  background: rgba(20,7,7,0.62);
+  border: 1px solid #6e1f1f;
+  padding: 30px;
+  border-radius: 18px;
+}
+
+a {
+  color: #d7b56d;
 }
 
 footer {
@@ -152,23 +225,24 @@ footer {
   border-top: 1px solid #5a1b1b;
 }
 
-a {
-  color: #d7b56d;
-}
-
-@media (max-width: 700px) {
+@media (max-width: 760px) {
   h1 {
     font-size: 3rem;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
   }
 
   nav a {
     display: block;
-    margin: 10px 0;
+    margin: 8px 0;
   }
 
-  .quote {
-    font-size: 1.2rem;
+  .about-wrap {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .author-photo {
+    margin: auto;
   }
 }
 </style>
@@ -176,16 +250,18 @@ a {
 
 <body>
 
-<div class="hero">
-  <div class="hero-content">
+<header class="hero">
+  <div class="hero-box">
     <h1>FAVORD</h1>
     <p class="tagline">Writer • Poet • Storyteller</p>
     <p class="quote">“Stories are not meant to be read. They are meant to be felt.”</p>
+    <a class="button" href="#books">Enter the Archive</a>
   </div>
-</div>
+</header>
 
 <nav>
   <a href="#books">Books</a>
+  <a href="#worlds">Story Worlds</a>
   <a href="#poetry">Poetry Vault</a>
   <a href="#about">About</a>
   <a href="#contact">Contact</a>
@@ -193,42 +269,95 @@ a {
 
 <section id="books">
   <h2>Enter the Archive</h2>
+  <p class="section-subtitle">
+    Dark romance, psychological horror, emotional horror, poetry, grief, healing, and worlds that refuse to stay quiet.
+  </p>
 
   <div class="books">
 
-<div class="book-card">
-  <p class="status">Available Now</p>
-<h3>The Convergence</h3>
-
-<img class="book-cover" src="The_Convergence_Book_Cover_HQ.jpg" alt="The Convergence Book Cover">
+    <div class="book-card">
+      <p class="status">Available Now</p>
+      <h3>The Convergence</h3>
+      <img class="book-cover" src="The_Convergence_Book_Cover_HQ.jpg" alt="The Convergence Book Cover">
       <p>
-        A dark occult romance where loneliness opens the door,
-        desire keeps it open, and love becomes the most dangerous
-        ritual of all.
+        A dark occult romance where loneliness opens the door, desire keeps it open,
+        and love becomes the most dangerous ritual of all.
       </p>
-      <a class="button" href="#">Read More</a>
+      <a class="button" href="https://www.amazon.com/Convergence-Favor-D-ebook/dp/B0H2R7CY77/ref=sr_1_1?dib=eyJ2IjoiMSJ9.yAqst1aLk5KXRkT2qgBiuV23jMACRfYNfmMMKPlgyPM.LroAF9yqJq_G2ztj5Hfai_2MAlQtwF29nqllAp7lo2E&dib_tag=se&keywords=the+convergence+favors&qid=1780944625&s=amazon-devices&sr=1-1" target="_blank">
+        Buy on Amazon
+      </a>
     </div>
 
-    <p class="status">In Progress</p>
-<h3>Where We Go When We Sleep</h3>
-
-<img class="book-cover" src="The Place We Go When We Sleep book cover.png" alt="Where We Go When We Sleep Book Cover">
+    <div class="book-card">
+      <p class="status">Upcoming Book</p>
+      <h3>Where We Go When We Sleep</h3>
+      <img class="book-cover" src="The Place We Go When We Sleep book cover.png" alt="Where We Go When We Sleep Book Cover">
       <p>
-        A psychological horror story about grief, marriage, shared dreams,
-        and the terrifying worlds we escape to when waking life becomes
-        unbearable.
+        A psychological and emotional horror story about grief, marriage, shared dreams,
+        and the terrifying worlds we escape to when waking life becomes unbearable.
       </p>
       <a class="button" href="#">Coming Soon</a>
     </div>
 
     <div class="book-card">
-      <p class="status">Coming Soon</p>
-      <h3>Upcoming Poetry Collection</h3>
+      <p class="status">Upcoming Poetry Collection</p>
+      <h3>Untitled Poetry Collection</h3>
       <p>
-        A timeless collection for women exploring healing, girlhood,
-        accountability, motherhood, identity, boundaries, pain, and becoming.
+        A timeless poetry book for women exploring girlhood, womanhood, motherhood,
+        accountability, boundaries, pain, healing, identity, and becoming.
       </p>
-      <a class="button" href="#">Enter Soon</a>
+      <a class="button" href="#poetry">Enter the Vault</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="worlds">
+  <h2>Story Worlds</h2>
+  <p class="section-subtitle">
+    Explore the different corners of Favord’s literary universe.
+  </p>
+
+  <div class="grid">
+
+    <div class="segment-card">
+      <h3>Dark Occult Romance</h3>
+      <p>
+        Desire, mirrors, obsession, supernatural intimacy, temptation,
+        and the danger of wanting to be seen too badly.
+      </p>
+    </div>
+
+    <div class="segment-card">
+      <h3>Psychological Horror</h3>
+      <p>
+        Dreams, alternate realities, identity, grief, and worlds that turn hostile
+        when truth enters.
+      </p>
+    </div>
+
+    <div class="segment-card">
+      <h3>Emotional Horror</h3>
+      <p>
+        Heartbreak, longing, trauma, emotional dependency, grief, and the terror
+        of needing what is destroying you.
+      </p>
+    </div>
+
+    <div class="segment-card">
+      <h3>Historical / Legacy Fiction</h3>
+      <p>
+        Stories of survival, freedom, Black identity, generational wounds,
+        protection, and reclaimed power.
+      </p>
+    </div>
+
+    <div class="segment-card">
+      <h3>Poetry for Women</h3>
+      <p>
+        Girlhood, womanhood, motherhood, shadow work, accountability, healing,
+        and becoming whole.
+      </p>
     </div>
 
   </div>
@@ -236,38 +365,78 @@ a {
 
 <section id="poetry">
   <h2>The Poetry Vault</h2>
+  <p class="section-subtitle">
+    One upcoming poetry collection. Many selves. One woman becoming whole.
+  </p>
 
   <div class="poetry-box">
+    <h3>Untitled Poetry Collection</h3>
     <p>
-      Here, poetry becomes confession, reflection, and resurrection.
-      This space will hold selected poems, emotional pieces, and excerpts
-      from upcoming collections by Favord.
+      This upcoming collection is being shaped as a timeless, philosophical poetry book for women.
+      It will explore self-reflection, accountability, emotional intelligence, boundaries,
+      healing, trauma, motherhood, identity, relationships, anger, guilt, envy, purpose,
+      and growth.
     </p>
+  </div>
+
+  <div class="grid" style="margin-top:30px;">
+
+    <div class="segment-card">
+      <h3>The Girl</h3>
+      <p>Before she became who she is, she was who she had to be.</p>
+    </div>
+
+    <div class="segment-card">
+      <h3>The Woman</h3>
+      <p>Identity, love, accountability, standards, softness, survival, and becoming.</p>
+    </div>
+
+    <div class="segment-card">
+      <h3>The Mother</h3>
+      <p>The women who raised us, wounded us, carried us, and became us.</p>
+    </div>
+
+    <div class="segment-card">
+      <h3>The Shadow</h3>
+      <p>Anger, envy, guilt, shame, truth, and the parts of ourselves we learn to face.</p>
+    </div>
+
   </div>
 </section>
 
 <section id="about">
   <h2>About Favord</h2>
 
-  <p>
-    Favord is a writer and poet creating emotionally immersive stories
-    that explore love, grief, obsession, healing, horror, identity, and
-    the hidden corners of the human experience.
-  </p>
+  <div class="about-wrap">
+    <img class="author-photo" src="author-photo.png" alt="Author photo of Favord">
 
-  <p>
-    Her work blends darkness with beauty, emotion with mystery, and
-    intimacy with the supernatural. Every story is built to be felt,
-    not just read.
-  </p>
+    <div>
+      <p>
+        Favord is a writer and poet creating emotionally immersive stories that explore love,
+        grief, obsession, healing, horror, identity, and the hidden corners of the human experience.
+      </p>
+
+      <p>
+        Her work blends darkness with beauty, emotion with mystery, and intimacy with the supernatural.
+        Every story is built to be felt, not just read.
+      </p>
+
+      <p>
+        Through novels, poetry, and cinematic story worlds, Favord writes for readers who crave depth,
+        atmosphere, emotional truth, and characters that stay with them long after the final page.
+      </p>
+    </div>
+  </div>
 </section>
 
 <section id="contact">
   <h2>Connect</h2>
 
-  <p>Email: <a href="mailto:favordwriter@gmail.com">favordwriter@gmail.com</a></p>
-  <p>Instagram: @favordwriter</p>
-  <p>TikTok: @favord.writer</p>
+  <div class="contact-box">
+    <p>Email: <a href="mailto:favordwriter@gmail.com">favordwriter@gmail.com</a></p>
+    <p>Instagram: @favordwriter</p>
+    <p>TikTok: @favord.writer</p>
+  </div>
 </section>
 
 <footer>
